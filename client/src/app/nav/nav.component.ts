@@ -13,7 +13,7 @@ import { AccountService } from '../_services/account.service';
 export class NavComponent implements OnInit {
   model: any = {};
 
-  constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) {}
+  constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -22,12 +22,7 @@ export class NavComponent implements OnInit {
     this.accountService.login(this.model).subscribe(
       (res) => {
         this.router.navigateByUrl('/members')
-      },
-      (error) => {
-        console.log(error);
-        this.toastr.error(error.error);
-      }
-    );
+      })
   }
 
   logout(): void {
